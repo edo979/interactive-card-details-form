@@ -1,0 +1,21 @@
+.flex {
+  display: flex;
+}
+
+.grid {
+  display: grid;
+  grid: 200px 1fr / 1fr;
+
+  &_background,
+  &_card-preview {
+    grid-area: 1 / 1 / 2 / 2;
+  }
+
+  &_background {
+    z-index: 1;
+  }
+
+  &_card-preview {
+    z-index: 2;
+  }
+}
