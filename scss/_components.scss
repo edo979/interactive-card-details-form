@@ -22,6 +22,7 @@
     left: $card-margin;
     top: 125px;
     z-index: 2;
+    padding: 1rem;
 
     background-image: url('/public/images/bg-card-front.png');
   }
@@ -32,6 +33,35 @@
     z-index: 1;
 
     background-image: url('/public/images/bg-card-back.png');
+  }
+
+  font-size: var(--fs-200);
+  letter-spacing: 1px;
+
+  // positioning card elements
+  &_logo {
+    width: 55px;
+  }
+
+  &_number {
+    margin-top: 35px;
+    letter-spacing: 2.5px;
+    font-size: var(--fs-400);
+  }
+
+  &_info {
+    justify-content: space-between;
+    margin-top: 10px;
+  }
+
+  &_cardholder {
+    text-transform: uppercase;
+  }
+
+  &_cvc {
+    position: absolute;
+    top: 70px;
+    right: 35px;
   }
 }
 
