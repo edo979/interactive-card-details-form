@@ -18,7 +18,10 @@
   &_card-preview {
     position: relative;
     justify-self: center;
-    width: min(100%, 460px);
+    // this value use in media query
+    // with background column width
+    // for card positioning
+    width: min(100%, 465.5px);
     z-index: 2;
   }
 

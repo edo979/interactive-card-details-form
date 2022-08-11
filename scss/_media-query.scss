@@ -1,6 +1,8 @@
-@media (min-width: 50em) {
+@media (min-width: $mq-break-point) {
   .grid {
+    max-width: 1440px;
     height: min(900px, 100vh);
+    margin-inline: auto;
     grid: 1fr / 480px 1fr;
 
     &_form,
@@ -26,11 +28,15 @@
     }
 
     &--front {
-      transform: translateX(50px);
+      margin-left: clamp(0px, calc(84vw - $mq-break-point), 160px - 17.5px);
     }
     &--back {
       margin-top: 35px;
-      transform: translateX(100px);
+      margin-left: clamp(
+        0px,
+        calc((100vw - $mq-break-point) / 2),
+        260px - 17.5px
+      );
     }
   }
 }
