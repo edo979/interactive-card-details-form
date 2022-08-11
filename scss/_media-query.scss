@@ -1,4 +1,9 @@
 @media (min-width: $mq-break-point) {
+  :root {
+    --fs-200: 0.8rem;
+    --fs-500: 1.5rem;
+  }
+
   body {
     padding-top: max(0px, calc((100vh - 900px) / 2));
   }
@@ -45,12 +50,30 @@
       margin-left: clamp(0px, calc(84vw - $mq-break-point), 160px - 17.5px);
     }
     &--back {
+      position: relative;
       margin-top: 35px;
       margin-left: clamp(
         0px,
         calc((100vw - $mq-break-point) / 2),
         260px - 17.5px
       );
+    }
+
+    &_logo {
+      width: 80px;
+    }
+
+    &_number {
+      margin-top: 80px;
+    }
+
+    &_info {
+      margin-top: 15px;
+    }
+
+    &_cvc {
+      top: 112px;
+      right: 55px;
     }
   }
 }
