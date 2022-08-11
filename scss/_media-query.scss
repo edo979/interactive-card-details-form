@@ -17,6 +17,16 @@
     &_card-preview {
       justify-self: end;
     }
+
+    &_form,
+    .attribution {
+      grid-area: 1 / 2 / 2 / 3;
+    }
+
+    .attribution {
+      align-self: end;
+      margin-top: 0;
+    }
   }
 
   .card {

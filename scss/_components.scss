@@ -71,20 +71,6 @@ form {
   }
 }
 
-.attribution {
-  position: absolute;
-  bottom: 15px;
-  right: 30px;
-  z-index: 2;
-
-  font-size: 11px;
-  text-align: center;
-
-  a {
-    color: hsl(228, 45%, 44%);
-  }
-}
-
 button {
   width: 100%;
   margin-top: 0.5rem;
@@ -93,4 +79,13 @@ button {
 
   color: $Light-grayish-violet;
   background-color: $Very-dark-violet;
+}
+
+.attribution {
+  font-size: 11px;
+  text-align: center;
+
+  a {
+    color: hsl(228, 45%, 44%);
+  }
 }
