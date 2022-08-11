@@ -36,6 +36,7 @@
 }
 
 .input-group {
+  margin-bottom: 1rem;
   display: flex;
   flex-direction: column;
 
@@ -45,10 +46,28 @@
   }
 
   label {
+    margin-bottom: 5px;
     font-size: var(--fs-300);
     text-transform: uppercase;
     letter-spacing: 2px;
     text-shadow: 0 0 1px rgba($color: #000000, $alpha: 0.4);
+  }
+
+  input {
+    padding: 8px 15px;
+    border: 1px solid $Light-grayish-violet;
+    border-radius: 8px;
+
+    &::placeholder {
+      color: $Light-grayish-violet;
+    }
+  }
+}
+
+form {
+  .flex {
+    gap: 10px;
+    align-items: center;
   }
 }
 
@@ -60,7 +79,18 @@
 
   font-size: 11px;
   text-align: center;
+
+  a {
+    color: hsl(228, 45%, 44%);
+  }
 }
-.attribution a {
-  color: hsl(228, 45%, 44%);
+
+button {
+  width: 100%;
+  margin-top: 0.5rem;
+  padding: 0.5rem;
+  border-radius: 8px;
+
+  color: $Light-grayish-violet;
+  background-color: $Very-dark-violet;
 }
