@@ -6,28 +6,29 @@
 }
 
 .card {
-  position: absolute;
-  width: 300px;
-  height: 150px;
-  border-radius: 10px;
+  $card-margin: 15px;
 
-  outline: 1px solid lime;
+  position: absolute;
+  width: 285px;
+  height: 155px;
+  border-radius: 5px;
+
   color: white;
 
   background-size: cover;
   background-position: center;
 
   &--front {
-    left: 20px;
-    top: 100px;
+    left: $card-margin;
+    top: 125px;
     z-index: 2;
 
     background-image: url('/public/images/bg-card-front.png');
   }
 
   &--back {
-    right: 20px;
-    top: 20px;
+    right: $card-margin;
+    top: 2 * $card-margin;
     z-index: 1;
 
     background-image: url('/public/images/bg-card-back.png');

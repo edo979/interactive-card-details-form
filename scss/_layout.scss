@@ -4,7 +4,7 @@
 
 .grid {
   display: grid;
-  grid: 200px 1fr / 1fr;
+  grid: 240px 1fr / 1fr;
 
   &_background,
   &_card-preview {
@@ -17,11 +17,14 @@
 
   &_card-preview {
     position: relative;
+    justify-self: center;
+    width: min(100%, 460px);
     z-index: 2;
   }
 
   &_form {
-    width: min(95%, 360px);
+    width: min(86.67vw, 360px);
+    padding-top: 90px;
     justify-self: center;
   }
 }
