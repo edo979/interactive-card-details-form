@@ -66,63 +66,62 @@
   }
 }
 
-.input-group {
-  margin-bottom: 1rem;
-  display: flex;
-  flex-direction: column;
-
-  & {
+.input {
+  // input group (label and input)
+  &-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1rem;
     width: 100%;
-  }
 
-  label {
-    margin-bottom: 5px;
-    font-size: var(--fs-300);
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    text-shadow: 0 0 1px rgba($color: #000000, $alpha: 0.4);
-  }
-
-  input {
-    position: absolute;
-    padding: 8px 15px;
-    border: 1px solid $Light-grayish-violet;
-    border-radius: 8px;
-    inset: 1px;
-    z-index: 3;
-
-    &::placeholder {
-      color: $Light-grayish-violet;
+    label {
+      margin-bottom: 5px;
+      font-size: var(--fs-300);
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      text-shadow: 0 0 1px rgba($color: #000000, $alpha: 0.4);
     }
-  }
 
-  .input {
-    &_container {
-      position: relative;
-      height: 45px;
-      background-color: transparent;
-      border-radius: 9px;
-      border: none;
-      outline: none;
-      overflow: hidden;
+    // border around input field
+    input {
+      position: absolute;
+      padding: 8px 15px;
+      border: 1px solid $Light-grayish-violet;
+      border-radius: 8px;
+      inset: 1px;
+      z-index: 3;
 
-      input:is(:focus, :active) {
-        border-color: transparent;
-        outline: none;
-
-        & + .input_border {
-          display: block;
-        }
+      &::placeholder {
+        color: $Light-grayish-violet;
       }
     }
+  }
 
-    &_border {
-      display: none;
-      position: absolute;
-      background: var(--l-gradient);
-      inset: 0;
-      z-index: 2;
+  &_container {
+    position: relative;
+    height: 45px;
+    background-color: transparent;
+    border-radius: 9px;
+    border: none;
+    outline: none;
+    overflow: hidden;
+
+    input:is(:focus, :active) {
+      border-color: transparent;
+      outline: none;
+
+      & + .input_border {
+        display: block;
+      }
     }
+  }
+
+  &_border {
+    display: none;
+    position: absolute;
+    background: var(--l-gradient);
+    inset: 0;
+    z-index: 2;
   }
 }
 
