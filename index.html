@@ -15,16 +15,19 @@
         <form aria-label="enter card details" id="form" onsubmit="return false">
           <div class="input-group">
             <label for="name">Cardholder Name</label>
-            <input
-              type="text"
-              name="name"
-              id="name"
-              placeholder="e.g. Jane Appleseed"
-              data-card-info="cardholder"
-            />
+            <div class="input_container">
+              <input
+                type="text"
+                name="name"
+                id="name"
+                placeholder="e.g. Jane Appleseed"
+                data-card-info="cardholder"
+              />
+              <span class="input_border"></span>
+            </div>
           </div>
 
-          <div class="input-group">
+          <!-- <div class="input-group">
             <label for="number">Card Number</label>
             <input
               type="text"
@@ -66,7 +69,7 @@
                 data-card-info="cvc"
               />
             </div>
-          </div>
+          </div> -->
 
           <button>Confirm</button>
         </form>

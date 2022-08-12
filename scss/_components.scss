@@ -71,8 +71,7 @@
   display: flex;
   flex-direction: column;
 
-  &,
-  input {
+  & {
     width: 100%;
   }
 
@@ -85,12 +84,44 @@
   }
 
   input {
+    position: absolute;
     padding: 8px 15px;
     border: 1px solid $Light-grayish-violet;
     border-radius: 8px;
+    inset: 1px;
+    z-index: 3;
 
     &::placeholder {
       color: $Light-grayish-violet;
+    }
+  }
+
+  .input {
+    &_container {
+      position: relative;
+      height: 45px;
+      background-color: transparent;
+      border-radius: 9px;
+      border: none;
+      outline: none;
+      overflow: hidden;
+
+      input:is(:focus, :active) {
+        border-color: transparent;
+        outline: none;
+
+        & + .input_border {
+          display: block;
+        }
+      }
+    }
+
+    &_border {
+      display: none;
+      position: absolute;
+      background: var(--l-gradient);
+      inset: 0;
+      z-index: 2;
     }
   }
 }
