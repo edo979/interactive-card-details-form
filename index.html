@@ -27,49 +27,61 @@
             </div>
           </div>
 
-          <!-- <div class="input-group">
+          <div class="input-group">
             <label for="number">Card Number</label>
-            <input
-              type="text"
-              name="number"
-              id="number"
-              placeholder="e.g. 1234 5678 9123 0000"
-              data-card-info="number"
-            />
+            <div class="input_container">
+              <input
+                type="text"
+                name="number"
+                id="number"
+                placeholder="e.g. 1234 5678 9123 0000"
+                data-card-info="number"
+              />
+              <span class="input_border"></span>
+            </div>
           </div>
 
           <div class="flex">
             <div class="input-group">
               <label for="date">Exp. Date (MM/YY)</label>
               <div class="flex">
-                <input
-                  type="text"
-                  name="date"
-                  id="date"
-                  placeholder="MM"
-                  data-card-info="month"
-                />
-                <input
-                  type="text"
-                  name="date"
-                  id="date"
-                  placeholder="YY"
-                  data-card-info="day"
-                />
+                <div class="input_container">
+                  <input
+                    type="text"
+                    name="date"
+                    id="date"
+                    placeholder="MM"
+                    data-card-info="month"
+                  />
+                  <span class="input_border"></span>
+                </div>
+                <div class="input_container">
+                  <input
+                    type="text"
+                    name="date"
+                    id="date"
+                    placeholder="YY"
+                    data-card-info="day"
+                  />
+                  <span class="input_border"></span>
+                </div>
               </div>
             </div>
 
             <div class="input-group">
               <label for="cvc">CVC</label>
-              <input
-                type="text"
-                name="cvc"
-                id="cvc"
-                placeholder="e.g. 123"
-                data-card-info="cvc"
-              />
+              <div class="input_container">
+                <input
+                  type="text"
+                  name="cvc"
+                  id="cvc"
+                  placeholder="e.g. 123"
+                  data-card-info="cvc"
+                />
+                <span class="input_border"></span>
+              </div>
             </div>
-          </div> -->
+          </div>
 
           <button>Confirm</button>
         </form>
