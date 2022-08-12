@@ -27,8 +27,8 @@ function isUserInputValid(inputEl) {
     isInputValid = false
     errorMsg = 'Wrong format, numbers only'
   } else if (
-    inputEl.dataset.cardInfo === 'month' ||
-    (!/^[0-9]+$/.test(inputEl.value) && parseInt(inputEl.value) > 12)
+    inputEl.dataset.cardInfo === 'month' &&
+    !(/^[0-9]+$/.test(inputEl.value) && parseInt(inputEl.value) <= 12)
   ) {
     isInputValid = false
     errorMsg = 'Wrong number format'
