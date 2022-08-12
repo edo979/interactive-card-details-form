@@ -15,20 +15,35 @@ formEl.addEventListener('input', (e) => {
 
 /** @param {Node} inputEl */
 function isUserInputValid(inputEl) {
-  // prettier-ignore
-  const reg = /^[\s\d]+$/
   let isInputValid = true,
     errorMsg = "Can't be blank"
 
   if (inputEl.value == '') {
     isInputValid = false
   } else if (
-    // skip validate cardholder name
-    inputEl.dataset.cardInfo != 'cardholder' &&
-    !reg.test(inputEl.value)
+    inputEl.dataset.cardInfo == 'number' &&
+    !/^[\s\d]+$/.test(inputEl.value)
   ) {
     isInputValid = false
     errorMsg = 'Wrong format, numbers only'
+  } else if (
+    inputEl.dataset.cardInfo === 'month' ||
+    (!/^[0-9]+$/.test(inputEl.value) && parseInt(inputEl.value) > 12)
+  ) {
+    isInputValid = false
+    errorMsg = 'Wrong number format'
+  } else if (
+    inputEl.dataset.cardInfo == 'day' &&
+    parseInt(inputEl.value) > 31
+  ) {
+    isInputValid = false
+    errorMsg = 'Wrong number format'
+  } else if (
+    inputEl.dataset.cardInfo == 'cvc' &&
+    parseInt(inputEl.value) > 999
+  ) {
+    isInputValid = false
+    errorMsg = 'Wrong number format'
   } else {
     isInputValid = true
   }
