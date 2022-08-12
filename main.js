@@ -20,32 +20,45 @@ function isUserInputValid(inputEl) {
 
   if (inputEl.value == '') {
     isInputValid = false
-  } else if (
-    inputEl.dataset.cardInfo == 'number' &&
-    !/^[\s\d]+$/.test(inputEl.value)
-  ) {
-    isInputValid = false
-    errorMsg = 'Wrong format, numbers only'
-  } else if (
+  }
+
+  switch (inputEl.dataset.cardInfo) {
+    case 'number':
+      isInputValid = /^[\s\d]+$/.test(inputEl.value)
+      errorMsg = 'Wrong format, numbers only'
+      break
+
+    case 'month':
+      const inputNum = parseInt(inputEl.value)
+
+      if (Number.isInteger(inputNum) && inputNum > 0 && inputNum <= 12) {
+        isInputValid = true
+      } else {
+        isInputValid = false
+        errorMsg = 'Wrong number format'
+      }
+      break
+
+    default:
+      isInputValid = true
+  }
+
+  if (
     inputEl.dataset.cardInfo === 'month' &&
-    !(/^[0-9]+$/.test(inputEl.value) && parseInt(inputEl.value) <= 12)
+    isNumberValid(parseInt(inputEl.value), [1, 12])
   ) {
     isInputValid = false
     errorMsg = 'Wrong number format'
-  } else if (
-    inputEl.dataset.cardInfo == 'day' &&
-    parseInt(inputEl.value) > 31
-  ) {
+  }
+
+  if (inputEl.dataset.cardInfo == 'day' && parseInt(inputEl.value) > 31) {
     isInputValid = false
     errorMsg = 'Wrong number format'
-  } else if (
-    inputEl.dataset.cardInfo == 'cvc' &&
-    parseInt(inputEl.value) > 999
-  ) {
+  }
+
+  if (inputEl.dataset.cardInfo == 'cvc' && parseInt(inputEl.value) > 999) {
     isInputValid = false
     errorMsg = 'Wrong number format'
-  } else {
-    isInputValid = true
   }
 
   if (!isInputValid) {
@@ -64,4 +77,9 @@ function isUserInputValid(inputEl) {
  */
 function showErrorMessage(inputEl, errorMsg) {
   inputEl.parentElement.querySelector('.error-msg').textContent = errorMsg
+}
+
+function isNumberValid(num, range) {
+  // &&
+  // !(/^[0-9]+$/.test(inputEl.value) && parseInt(inputEl.value) <= 12)
 }
