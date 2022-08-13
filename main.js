@@ -20,43 +20,32 @@ function isUserInputValid(inputEl) {
 
   if (inputEl.value == '') {
     isInputValid = false
-  }
+  } else {
+    switch (inputEl.dataset.cardInfo) {
+      case 'number':
+        isInputValid = /^[\s\d]+$/.test(inputEl.value)
+        errorMsg = 'Wrong format, numbers only'
+        break
 
-  let result = []
-  switch (inputEl.dataset.cardInfo) {
-    case 'number':
-      isInputValid = /^[\s\d]+$/.test(inputEl.value)
-      errorMsg = 'Wrong format, numbers only'
-      break
+      case 'month':
+        // prettier-ignore
+        [isInputValid, errorMsg] = isNumberValid(inputEl.value, [1, 12])
 
-    case 'month':
-      // prettier-ignore
-      result = isNumberValid(inputEl.value, [0, 12])
-      // prettier-ignore
-      [isInputValid, errorMsg] = result
-      console.log(result)
-      break
+        break
 
-    case 'day':
-      if (Number.isInteger(inputNum) && inputNum > 0 && inputNum <= 31) {
+      case 'day':
+        // prettier-ignore
+        [isInputValid, errorMsg] = isNumberValid(inputEl.value, [1, 31])
+        break
+
+      case 'cvc':
+        // prettier-ignore
+        [isInputValid, errorMsg] = isNumberValid(inputEl.value, [0, 999])
+        break
+
+      default:
         isInputValid = true
-      } else {
-        isInputValid = false
-        errorMsg = 'Wrong number format'
-      }
-      break
-
-    case 'cvc':
-      if (Number.isInteger(inputNum) && inputNum > 0 && inputNum <= 999) {
-        isInputValid = true
-      } else {
-        isInputValid = false
-        errorMsg = 'Wrong number format'
-      }
-      break
-
-    default:
-      isInputValid = true
+    }
   }
 
   if (!isInputValid) {
@@ -77,11 +66,16 @@ function showErrorMessage(inputEl, errorMsg) {
   inputEl.parentElement.querySelector('.error-msg').textContent = errorMsg
 }
 
+/**
+ *
+ * @param {String} input
+ * @param {Array} range
+ */
 function isNumberValid(input, range) {
   if (/^\d+$/.test(input)) {
     const number = parseInt(input)
 
-    if (number > range[0] && number <= range[1]) {
+    if (number >= range[0] && number <= range[1]) {
       return [true, '']
     }
   }
