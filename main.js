@@ -63,7 +63,10 @@ function isUserInputValid(inputEl) {
  * @param {String} errorMsg
  */
 function showErrorMessage(inputEl, errorMsg) {
-  inputEl.parentElement.querySelector('.error-msg').textContent = errorMsg
+  // error msg element is in diferent position
+  // for month and day, this  selector catch them all
+  inputEl.closest('.input-group').querySelector('.error-msg').textContent =
+    errorMsg
 }
 
 /**

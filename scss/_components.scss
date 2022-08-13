@@ -105,18 +105,6 @@
     border: none;
     outline: none;
 
-    .error-msg {
-      display: none;
-
-      position: absolute;
-      width: 300px;
-      left: 0;
-      bottom: -1rem;
-
-      font-size: var(--fs-300);
-      color: $Red;
-    }
-
     input:is(:focus, :active) {
       border-color: transparent;
       outline: none;
@@ -136,6 +124,12 @@
         display: block;
       }
     }
+
+    // show message for month and day
+    // two inputs share one span for msg
+    &.error ~ .error-msg {
+      display: block;
+    }
   }
 
   &_border {
@@ -146,6 +140,18 @@
     z-index: 2;
     background: var(--l-gradient);
   }
+}
+
+.error-msg {
+  display: none;
+
+  position: absolute;
+  width: 300px;
+  left: 0;
+  bottom: -1rem;
+
+  font-size: var(--fs-300);
+  color: $Red;
 }
 
 form {

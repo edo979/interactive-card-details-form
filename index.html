@@ -46,7 +46,7 @@
           <div class="flex">
             <div class="input-group">
               <label for="date">Exp. Date (MM/YY)</label>
-              <div class="flex">
+              <div class="flex" style="position: relative">
                 <div class="input_container">
                   <input
                     type="text"
@@ -56,7 +56,6 @@
                     data-card-info="month"
                   />
                   <span class="input_border"></span>
-                  <span class="error-msg">Cant be blank</span>
                 </div>
                 <div class="input_container">
                   <input
@@ -67,8 +66,9 @@
                     data-card-info="day"
                   />
                   <span class="input_border"></span>
-                  <span class="error-msg">Cant be blank</span>
                 </div>
+                <!-- Error msg for month and day -->
+                <span class="error-msg">Cant be blank</span>
               </div>
             </div>
 
