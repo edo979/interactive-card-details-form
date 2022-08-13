@@ -6,10 +6,15 @@ formEl.addEventListener('input', (e) => {
   const inputName = e.target.dataset.cardInfo,
     targetFieldEl = document.querySelector(`[data-card-preview='${inputName}']`)
 
-  if (isUserInputValid(e.target)) {
+  const [isValid, errorMsg] = isUserInputValid(e.target)
+
+  if (isValid) {
     targetFieldEl.textContent = e.target.value
+    e.target.parentElement.classList.remove('error')
   } else {
     targetFieldEl.textContent = 'Input error!'
+    e.target.parentElement.classList.add('error')
+    showErrorMessage(e.target, errorMsg)
   }
 })
 
@@ -48,14 +53,7 @@ function isUserInputValid(inputEl) {
     }
   }
 
-  if (!isInputValid) {
-    inputEl.parentElement.classList.add('error')
-    showErrorMessage(inputEl, errorMsg)
-  } else {
-    inputEl.parentElement.classList.remove('error')
-  }
-
-  return isInputValid
+  return [isInputValid, errorMsg]
 }
 
 /**
