@@ -22,6 +22,7 @@ function isUserInputValid(inputEl) {
     isInputValid = false
   }
 
+  let result = []
   switch (inputEl.dataset.cardInfo) {
     case 'number':
       isInputValid = /^[\s\d]+$/.test(inputEl.value)
@@ -29,9 +30,24 @@ function isUserInputValid(inputEl) {
       break
 
     case 'month':
-      const inputNum = parseInt(inputEl.value)
+      // prettier-ignore
+      result = isNumberValid(inputEl.value, [0, 12])
+      // prettier-ignore
+      [isInputValid, errorMsg] = result
+      console.log(result)
+      break
 
-      if (Number.isInteger(inputNum) && inputNum > 0 && inputNum <= 12) {
+    case 'day':
+      if (Number.isInteger(inputNum) && inputNum > 0 && inputNum <= 31) {
+        isInputValid = true
+      } else {
+        isInputValid = false
+        errorMsg = 'Wrong number format'
+      }
+      break
+
+    case 'cvc':
+      if (Number.isInteger(inputNum) && inputNum > 0 && inputNum <= 999) {
         isInputValid = true
       } else {
         isInputValid = false
@@ -41,24 +57,6 @@ function isUserInputValid(inputEl) {
 
     default:
       isInputValid = true
-  }
-
-  if (
-    inputEl.dataset.cardInfo === 'month' &&
-    isNumberValid(parseInt(inputEl.value), [1, 12])
-  ) {
-    isInputValid = false
-    errorMsg = 'Wrong number format'
-  }
-
-  if (inputEl.dataset.cardInfo == 'day' && parseInt(inputEl.value) > 31) {
-    isInputValid = false
-    errorMsg = 'Wrong number format'
-  }
-
-  if (inputEl.dataset.cardInfo == 'cvc' && parseInt(inputEl.value) > 999) {
-    isInputValid = false
-    errorMsg = 'Wrong number format'
   }
 
   if (!isInputValid) {
@@ -79,7 +77,14 @@ function showErrorMessage(inputEl, errorMsg) {
   inputEl.parentElement.querySelector('.error-msg').textContent = errorMsg
 }
 
-function isNumberValid(num, range) {
-  // &&
-  // !(/^[0-9]+$/.test(inputEl.value) && parseInt(inputEl.value) <= 12)
+function isNumberValid(input, range) {
+  if (/^\d+$/.test(input)) {
+    const number = parseInt(input)
+
+    if (number > range[0] && number <= range[1]) {
+      return [true, '']
+    }
+  }
+
+  return [false, 'Wrong format']
 }
