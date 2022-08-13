@@ -1,7 +1,9 @@
 import './scss/style.scss'
 
-const formEl = document.getElementById('form')
+const formEl = document.getElementById('form'),
+  btnEl = document.querySelector('.btn')
 
+// event listeners
 formEl.addEventListener('input', (e) => {
   const inputName = e.target.dataset.cardInfo,
     targetFieldEl = document.querySelector(`[data-card-preview='${inputName}']`)
@@ -13,8 +15,25 @@ formEl.addEventListener('input', (e) => {
     e.target.parentElement.classList.remove('error')
   } else {
     targetFieldEl.textContent = 'Input error!'
-    e.target.parentElement.classList.add('error')
     showErrorMessage(e.target, errorMsg)
+  }
+})
+
+btnEl.addEventListener('click', (e) => {
+  const inputEls = document.querySelectorAll('[data-card-info]')
+  let isFormDataValid = true
+
+  inputEls.forEach((inputEl) => {
+    const [isValid, errorMsg] = isUserInputValid(inputEl)
+
+    if (!isValid) {
+      isFormDataValid = false
+      showErrorMessage(inputEl, errorMsg)
+    }
+  })
+
+  if (isFormDataValid) {
+    console.log('submit')
   }
 })
 
@@ -61,6 +80,8 @@ function isUserInputValid(inputEl) {
  * @param {String} errorMsg
  */
 function showErrorMessage(inputEl, errorMsg) {
+  inputEl.parentElement.classList.add('error')
+
   // error msg element is in diferent position
   // for month and day, this  selector catch them all
   inputEl.closest('.input-group').querySelector('.error-msg').textContent =
