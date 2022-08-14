@@ -1,6 +1,6 @@
 @media (min-width: $mq-break-point) {
   :root {
-    --fs-200: 0.8rem;
+    --fs-200: 0.85rem;
     --fs-500: 1.5rem;
   }
 
@@ -26,6 +26,7 @@
     &_form,
     .attribution {
       grid-area: 1 / 2 / 2 / 3;
+      padding-top: 0;
     }
 
     .attribution {
@@ -49,6 +50,7 @@
 
     &--front {
       margin-left: clamp(0px, calc(84vw - $mq-break-point), 160px - 17.5px);
+      padding-inline: 2rem;
     }
     &--back {
       position: relative;
