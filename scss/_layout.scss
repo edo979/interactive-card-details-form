@@ -29,6 +29,16 @@
     width: min(86.67vw, 360px);
     padding-top: 90px;
     justify-self: center;
+
+    &.hidde-form {
+      form {
+        display: none;
+      }
+
+      .complete-state {
+        display: block;
+      }
+    }
   }
 }
 

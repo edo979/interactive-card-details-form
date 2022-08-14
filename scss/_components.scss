@@ -161,6 +161,28 @@ form {
   }
 }
 
+.complete-state {
+  text-align: center;
+  color: $Very-dark-violet;
+
+  img {
+    margin-top: 0.5rem;
+    margin-inline: auto;
+  }
+
+  p:first-of-type {
+    margin: 1.5rem 0 0.5rem;
+    font-size: var(--fs-600);
+    letter-spacing: 3px;
+    text-transform: uppercase;
+  }
+
+  p:last-of-type {
+    margin-bottom: 2rem;
+    color: $Dark-grayish-violet;
+  }
+}
+
 .btn {
   width: 100%;
   margin-top: 0.5rem;
