@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/interactive-card-details-form/images/favicon-32x32.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Interactive Card Details Form</title>
+    <script type="module" crossorigin src="/interactive-card-details-form/assets/index.9d26c466.js"></script>
+    <link rel="stylesheet" href="/interactive-card-details-form/assets/index.adcea069.css">
+  </head>
+  <body>
+    <div class="grid">
+      <div class="grid_background"></div>
+
+      <div class="grid_form">
+        <form aria-label="enter card details" id="form" onsubmit="return false">
+          <div class="input-group">
+            <label for="name">Cardholder Name</label>
+            <div class="input_container">
+              <input
+                type="text"
+                name="name"
+                id="name"
+                placeholder="e.g. Jane Appleseed"
+                data-card-info="cardholder"
+              />
+              <span class="input_border"></span>
+              <span class="error-msg">Cant be blank</span>
+            </div>
+          </div>
+
+          <div class="input-group">
+            <label for="number">Card Number</label>
+            <div class="input_container">
+              <input
+                type="text"
+                name="number"
+                id="number"
+                placeholder="e.g. 1234 5678 9123 0000"
+                data-card-info="number"
+              />
+              <span class="input_border"></span>
+              <span class="error-msg">Cant be blank</span>
+            </div>
+          </div>
+
+          <div class="flex">
+            <div class="input-group">
+              <label for="date">Exp. Date (MM/YY)</label>
+              <div class="flex" style="position: relative">
+                <div class="input_container">
+                  <input
+                    type="text"
+                    name="date"
+                    id="date"
+                    placeholder="MM"
+                    data-card-info="month"
+                  />
+                  <span class="input_border"></span>
+                </div>
+                <div class="input_container">
+                  <input
+                    type="text"
+                    name="date"
+                    id="date"
+                    placeholder="YY"
+                    data-card-info="day"
+                  />
+                  <span class="input_border"></span>
+                </div>
+                <!-- Error msg for month and day -->
+                <span class="error-msg">Cant be blank</span>
+              </div>
+            </div>
+
+            <div class="input-group">
+              <label for="cvc">CVC</label>
+              <div class="input_container">
+                <input
+                  type="text"
+                  name="cvc"
+                  id="cvc"
+                  placeholder="e.g. 123"
+                  data-card-info="cvc"
+                />
+                <span class="input_border"></span>
+                <span class="error-msg">Cant be blank</span>
+              </div>
+            </div>
+          </div>
+
+          <input type="button" value="Confirm" class="btn" />
+        </form>
+        <section class="complete-state">
+          <img src="/interactive-card-details-form/images/icon-complete.svg" alt="" />
+          <p>Thank You!</p>
+          <p>We've added your card details</p>
+          <button class="btn">Continue</button>
+        </section>
+      </div>
+
+      <div class="grid_card-preview" aria-hidden="true">
+        <div class="card card--front">
+          <div class="card_logo">
+            <img src="/interactive-card-details-form/images/card-logo.svg" alt="" />
+          </div>
+          <p class="card_number" data-card-preview="number">
+            0000 0000 0000 0000
+          </p>
+          <div class="card_info | flex">
+            <p class="card_cardholder" data-card-preview="cardholder">
+              Jane Appleseed
+            </p>
+            <p class="card_date">
+              <span data-card-preview="month">00</span>/<span
+                data-card-preview="day"
+                >00</span
+              >
+            </p>
+          </div>
+        </div>
+        <div class="card card--back">
+          <p class="card_cvc" data-card-preview="cvc">000</p>
+        </div>
+      </div>
+
+      <div class="attribution">
+        Challenge by
+        <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
+          >Frontend Mentor</a
+        >. Coded by
+        <a href="https://www.frontendmentor.io/profile/edo979">edo979</a>.
+      </div>
+    </div>
+
+    <!-- Completed state start 
+
+    Thank you! We've added your card details Continue-->
+
+    
+  </body>
+</html>
