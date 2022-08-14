@@ -193,6 +193,12 @@ form {
 
   color: $Light-grayish-violet;
   background-color: $Very-dark-violet;
+
+  cursor: pointer;
+
+  &:is(:hover, :focus) {
+    opacity: 0.92;
+  }
 }
 
 .attribution {
