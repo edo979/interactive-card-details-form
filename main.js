@@ -33,7 +33,7 @@ btnEl.addEventListener('click', (e) => {
   })
 
   if (isFormDataValid) {
-    console.log('submit')
+    document.querySelector('.grid_form').classList.add('hidde-form')
   }
 })
 
